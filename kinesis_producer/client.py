@@ -59,7 +59,7 @@ def call_and_retry_put_records(boto_function, max_retries, **kwargs):
 
         records = kwargs['Records']
         resp = boto_function(**kwargs)
-        if resp[u'FailedRecordCount'] > 0:
+        if resp['FailedRecordCount'] > 0:
             failed_records = _get_failed_record_responses(resp)
         else:
             return resp
@@ -84,8 +84,8 @@ def _get_failed_record_responses(resp):
         # data and just have AWS info instead. Store the index that
         # failed, too.
         (i, record) for (i, record)
-        in enumerate(resp[u'Records'])
-        if record.has_key('ErrorCode')
+        in enumerate(resp['Records'])
+        if 'ErrorCode' in record
     ]
 
 

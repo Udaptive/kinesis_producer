@@ -24,7 +24,7 @@ k = KinesisProducer(config=config)
 payload = '{MSG:%%05i %s}' % ('X' * 1000)
 
 try:
-    print ' <> MSGS'
+    print(' <> MSGS')
     for msg_id in range(50000):
         record = payload % msg_id
         k.send(record)
@@ -34,10 +34,10 @@ try:
 except KeyboardInterrupt:
     pass
 finally:
-    print ' <> CLOSE'
+    print(' <> CLOSE')
     k.close()
 
-    print ' <> JOIN'
+    print(' <> JOIN')
     k.join()
 
-    print ' <> QUIT'
+    print(' <> QUIT')

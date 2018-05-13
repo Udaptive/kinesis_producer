@@ -23,7 +23,7 @@ def test_send_unicode(kinesis, config):
     utf8_str = "hi猫"
     c.send(utf8_str)
 
-    utf8_str = u"hi"
+    utf8_str = "hi"
     c.send(utf8_str)
 
     c.close()
